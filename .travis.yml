@@ -13,3 +13,19 @@ before_install:
 # step 3
 script:
   - docker run -e CI=true pranchal04/docker-react npm run test
+
+# step 4
+deploy:
+  # provider is to whom to deploy to
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: docker-react
+  env: "Dockerreact-env"
+  # s3 bucket
+  bucket_name: "elasticbeanstalk-ap-south-1-876246297307"
+  bucket_name: "docker"
+  # changes to which branch must be deployed
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
