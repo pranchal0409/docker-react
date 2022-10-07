@@ -1,0 +1,15 @@
+language: generic
+# super-user level permsission
+sudo: required
+
+# step 1
+services:
+  - docker
+
+# step 2
+before_install:
+  - docker build -t pranchal04/docker-react -f Dockerfile.dev .
+
+# step 3
+script:
+  - docker run -e CI=true pranchal04/docker-react npm run test

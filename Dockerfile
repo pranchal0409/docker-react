@@ -7,7 +7,7 @@ WORKDIR '/app'
 COPY package.json .
 RUN npm install
 COPY . .
-# we do not need to use volume as this is producyion env
+# we do not need to use volume as this is production env
 RUN npm run build  
 
 # /app/build -> we nedd this in run phase
