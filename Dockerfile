@@ -14,6 +14,7 @@ RUN npm run build
 
 # run phase
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 # /usr/share/nginx/html is the nginx base folder which will be displayed
 # nginx will run on it's own 
